@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id String @id @default(uuid()) @db.Uuid
+  name String
+  email String @unique
+  password String
+  phone String?
+  profile_image_path String?
+  role_id String
+  role Roles @relation(fields: [role_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Roles {
+  id String @id @default(uuid())
+  status Boolean @default(true)
+  users Users[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("roles")
+}
+
+enum EnumGenre {
+  FICTION
+  FANTASY
+  ROMANCE
+  BIOGRAPHY
+  SCIENCE
+}
+
+model Author {
+  id String @id @default(uuid())
+  name String
+  birthdate DateTime?
+  nationality String
+  // books Books[] @relation("Author_Books")
+  author_books AuthorBooks[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("author")
+}
+
+model Books {
+  id String @id @default(uuid())
+  title String 
+  isbn String @unique
+  publication_date DateTime?
+  genre EnumGenre 
+  price Decimal @db.Decimal(18, 2)
+  number_page Int?
+  binding_type String?
+  language String?
+  publish_id String
+  publish Publish @relation(fields: [publish_id], references: [id])
+  // authors Author[] @relation("Author_Books")
+  author_books AuthorBooks[]
+  review Review? // Campo de relação One-to-One
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("books")
+}
+
+model AuthorBooks {
+  id String @id @default(uuid())
+  authors Author @relation(fields: [author_id], references: [id])
+  author_id String
+  books Books @relation(fields: [book_id], references: [id])
+  book_id String
+
+  @@unique([author_id, book_id])  // Chave primária composta
+  @@map("author_books")
+}
+
+model Publish {
+  id String @id @default(uuid())
+  name String
+  books Books[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("publish")
+}
+
+model Review {
+  id String @id @default(uuid())
+  description String @db.Text()
+  book_id String @unique
+  book Books @relation(fields: [book_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
