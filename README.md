@@ -1,99 +1,83 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Library API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Descrição do Projeto
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+O **Library API** é uma aplicação desenvolvida utilizando o framework [Nest.js](https://nestjs.com/) em conjunto com o ORM [Prisma](https://www.prisma.io/). Este projeto tem como objetivo gerenciar um sistema de biblioteca, permitindo operações de cadastro, consulta, atualização e exclusão de livros, além do gerenciamento de empréstimos.
 
-## Description
+## Principais Tecnologias Utilizadas
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Nest.js**: Framework Node.js progressivo para a construção de aplicações server-side eficientes e escaláveis.
+- **Prisma**: ORM de próxima geração que facilita o acesso ao banco de dados com segurança de tipos e produtividade.
+- **PostgreSQL**: Banco de dados relacional utilizado para armazenamento das informações.
+- **Docker**: Plataforma para desenvolvimento, envio e execução de aplicações em containers.
 
-## Project setup
+## Funcionalidades Principais
 
-```bash
-$ pnpm install
-```
+### Gerenciamento de Livros
 
-## Compile and run the project
+- **Cadastro de livros**: Permite adicionar novos livros com informações como título, autor e ISBN.
+- **Consulta de livros**: Possibilita a busca de livros por parâmetros como título ou autor.
+- **Atualização de livros**: Facilita a modificação das informações dos livros cadastrados.
+- **Exclusão de livros**: Permite remover livros do sistema.
 
-```bash
-# development
-$ pnpm run start
+### Gerenciamento de Empréstimos
 
-# watch mode
-$ pnpm run start:dev
+- **Registro de empréstimos**: Vincula empréstimos a livros e usuários, registrando datas e prazos.
+- **Devolução de livros**: Controla a devolução de livros, garantindo o cumprimento dos prazos estabelecidos.
+- **Listagem de empréstimos**: Exibe empréstimos em aberto e históricos de empréstimos concluídos.
 
-# production mode
-$ pnpm run start:prod
-```
+## Arquitetura e Design
 
-## Run tests
+- **API RESTful**: A aplicação segue os princípios REST para comunicação entre cliente e servidor.
+- **Banco de Dados Relacional**: Utilização do PostgreSQL para armazenamento estruturado e eficiente dos dados.
+- **Boas Práticas de Código**: Implementação de padrões como DTOs, Services e Repositories para manter a separação de responsabilidades e facilitar a manutenção do código.
 
-```bash
-# unit tests
-$ pnpm run test
+## Como Executar o Projeto
 
-# e2e tests
-$ pnpm run test:e2e
+### Pré-requisitos
 
-# test coverage
-$ pnpm run test:cov
-```
+- [Node.js](https://nodejs.org/) versão 14 ou superior.
+- [Docker](https://www.docker.com/) instalado e em execução.
+- Banco de dados PostgreSQL configurado ou utilização de container Docker para o banco.
 
-## Deployment
+### Configurações Iniciais
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+1. **Clone o repositório para a sua máquina**
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+   ```bash
+   git clone https://github.com/seu-usuario/library-api.git
 
-```bash
-$ pnpm install -g mau
-$ mau deploy
-```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### Configurações iniciais:
+  Clone o repositório para a sua máquina
+  
+  ### Execução do docker
+    docker-compose up --build
 
-## Resources
+  ### Acesso ao container
+    docker exec -it -u node prismaapi-app sh
 
-Check out a few resources that may come in handy when working with NestJS:
+  ### Dentro do conatainer rode o comando para gerar as migrations:
+    npx prisma migrate dev --name init
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+  ### Acesso ao PgAdmin4 via browser
+    localhost:http://localhost:15432
 
-## Support
+  
+### Acessando a API
+A API estará disponível no endereço padrão: http://localhost:3000.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Endpoints Principais
+## Livros
+### POST /api/books: Cadastrar livro.
+### GET /api/books: Listar livros.
+### PUT /api/books/{id}: Atualizar livro.
+### DELETE /api/books/{id}: Remover livro.
 
-## Stay in touch
+## Empréstimos
+### POST /api/loans: Registrar empréstimo.
+### PUT /api/loans/{id}: Finalizar empréstimo.
+### GET /api/loans: Listar empréstimos.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+# Considerações Finais
+Este projeto serve como uma base para sistemas de gerenciamento de bibliotecas e pode ser expandido conforme as necessidades específicas de cada implementação. A utilização do Nest.js em conjunto com o Prisma proporciona uma estrutura robusta e escalável, facilitando o desenvolvimento e a manutenção da aplicação.
