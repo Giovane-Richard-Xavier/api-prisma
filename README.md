@@ -28,5 +28,36 @@ Docker instalado e em execução.
 Banco de dados PostgreSQL configurado ou utilização de container Docker para o banco.
 
 # Configuração
-Clone o repositór
-  git clone https://github.com/seu-usuario/library-api.git
+# Clone o repositór
+  git clone 
+  
+  # Execute o docker
+    docker-compose up --build
+
+  # Acessar o container
+    docker exec -it -u node prismaapi-app sh
+
+  # Rode o comando (gerar as migrations):
+    npx prisma migrate dev --name init
+
+  # Acesso ao PgAdmin4 via browser
+    localhost:http://localhost:15432
+
+  
+# Acessando a API
+A API estará disponível no endereço padrão: http://localhost:3000.
+
+# Endpoints Principais
+Livros
+# POST /api/books: Cadastrar livro.
+# GET /api/books: Listar livros.
+# PUT /api/books/{id}: Atualizar livro.
+# DELETE /api/books/{id}: Remover livro.
+
+# Empréstimos
+# POST /api/loans: Registrar empréstimo.
+# PUT /api/loans/{id}: Finalizar empréstimo.
+# GET /api/loans: Listar empréstimos.
+
+# Considerações Finais
+Este projeto serve como uma base para sistemas de gerenciamento de bibliotecas e pode ser expandido conforme as necessidades específicas de cada implementação. A utilização do Nest.js em conjunto com o Prisma proporciona uma estrutura robusta e escalável, facilitando o desenvolvimento e a manutenção da aplicação.
