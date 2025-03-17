@@ -62,6 +62,12 @@ O **Library API** é uma aplicação desenvolvida utilizando o framework [Nest.j
 
   ### Acesso ao PgAdmin4 via browser
     localhost:http://localhost:15432
+    
+  ### Ou no container execute:
+    npx prisma studio
+    
+  ### Acesso ao Prisma studio via browser
+    localhost:5555
 
   
 ### Acessando a API
