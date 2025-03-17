@@ -26,3 +26,7 @@ Pré-requisitos
 Node.js versão 14 ou superior.
 Docker instalado e em execução.
 Banco de dados PostgreSQL configurado ou utilização de container Docker para o banco.
+
+# Configuração
+Clone o repositór
+  git clone https://github.com/seu-usuario/library-api.git
