@@ -24,6 +24,7 @@ model Users {
 
 model Roles {
   id String @id @default(uuid())
+  name String
   status Boolean @default(true)
   users Users[]
   created_at DateTime @default(now())
