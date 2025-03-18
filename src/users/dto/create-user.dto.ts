@@ -1,8 +1,33 @@
+import {
+  IsEmail,
+  IsEnum,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+} from 'class-validator';
+
 export class CreateUserDto {
+  @IsString()
+  @IsNotEmpty()
   name: string;
+
+  @IsEmail()
+  @IsNotEmpty()
   email: string;
+
+  @IsString()
+  @IsNotEmpty()
   password: string;
-  phone: string;
+
+  @IsString()
+  @IsOptional()
+  phone?: string;
+
+  @IsString()
+  @IsOptional()
   profile_image_path: string;
+
+  @IsString()
+  @IsNotEmpty()
   role_id: string;
 }
